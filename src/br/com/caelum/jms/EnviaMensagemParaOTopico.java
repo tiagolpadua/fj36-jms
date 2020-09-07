@@ -15,6 +15,7 @@ public class EnviaMensagemParaOTopico {
 		Topic topico = (Topic) ic.lookup("jms/TOPICO.LIVRARIA");
 		try (JMSContext context = factory.createContext("jms", "jms2")) {
 			JMSProducer producer = context.createProducer();
+			producer.setProperty("formato", "ebook");
 			Scanner scanner = new Scanner(System.in);
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
